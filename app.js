@@ -1,25 +1,6 @@
 // 這些錯誤碼代表這個瀏覽器不能內嵌（沒登入、沒權限或 Cookie 被擋）。錯誤碼 5 在成功播放時也會出現，不能算在內。
 var BLOCKED_ERRORS = [100, 101, 150, 153];
 
-// 每本相簿的美術主題，依相簿名稱挑選；最後一項是新相簿的預設值
-var THEMES = [
-  { match: /大阪/, cover: 'osaka', stamp: 'OSAKA', cloth: '#7c3a2b', tape: '#d98a6a', stickers: ['takoyaki', 'lantern', 'castle', 'sun', 'camera'] },
-  { match: /首爾/, cover: 'seoul', stamp: 'SEOUL', cloth: '#1f4c5c', tape: '#6fb2b0', stickers: ['tower', 'hanok', 'tteok', 'lantern', 'plane'] },
-  { match: /煙火/, cover: 'fireworks', stamp: 'TAIPEI', cloth: '#1f2a57', tape: '#8f94cf', stickers: ['firework', 'boat', 'camera', 'heart'] },
-  { match: /吐司|安魂/, cover: 'toast', stamp: 'ENCORE', cloth: '#4d3274', tape: '#b58ccb', stickers: ['toast', 'mask', 'note', 'moon'] },
-  { match: /六福|樂園/, cover: 'park', stamp: 'FUN DAY', cloth: '#2f6d80', tape: '#ef9f7f', stickers: ['ferris', 'coaster', 'balloon', 'heart'] },
-  { match: /美館|展/, cover: 'museum', stamp: 'TAIPEI', cloth: '#35516f', tape: '#a2bdc9', stickers: ['easel', 'frame', 'charcoal', 'camera'] },
-  { match: /宜蘭/, cover: 'yilan', stamp: 'YILAN', cloth: '#2f7077', tape: '#8fc9bd', stickers: ['island', 'wave', 'scallion', 'sun'] },
-  { match: /溜冰|小巨蛋/, cover: 'skate', stamp: 'ON ICE', cloth: '#274a7a', tape: '#9cc9df', stickers: ['skate', 'snow', 'dome', 'heart'] },
-  { match: /彈跳|夜市/, cover: 'jump', stamp: 'BRAVE', cloth: '#6a2f4c', tape: '#e49a78', stickers: ['bungee', 'mist', 'skewer', 'stall'] },
-  { match: /./, cover: 'trip', stamp: 'TRAVEL', cloth: '#74522e', tape: '#d6ab74', stickers: ['suitcase', 'plane', 'compass', 'camera'] }
-];
-// 影片標題提到這些地方時，內頁優先貼對應的貼紙
-var VIDEO_STICKERS = [
-  { match: /環球/, stickers: ['globe', 'coaster'] },
-  { match: /海游館/, stickers: ['whale', 'fish'] }
-];
-
 var app = document.getElementById('app');
 var searchInput = document.getElementById('search');
 var narrowQuery = window.matchMedia('(max-width: 760px)');
@@ -96,7 +77,7 @@ function buildAlbums(list) {
   });
   result.sort(function (a, b) { return b.date.localeCompare(a.date); });
   result.forEach(function (album) {
-    album.theme = THEMES.filter(function (theme) { return theme.match.test(album.name); })[0];
+    album.theme = THEMES.filter(function (theme) { return theme.match.test(album.id); })[0];
   });
   return result;
 }
