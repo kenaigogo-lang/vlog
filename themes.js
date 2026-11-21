@@ -10,6 +10,7 @@ var THEMES = [
   { match: /溜冰|小巨蛋/, cover: 'skate', stamp: 'ON ICE', cloth: '#274a7a', tape: '#9cc9df', stickers: ['skate', 'snow', 'dome', 'heart'] },
   { match: /彈跳|夜市/, cover: 'jump', stamp: 'BRAVE', cloth: '#6a2f4c', tape: '#e49a78', stickers: ['bungee', 'mist', 'skewer', 'stall'] },
   { match: /薑餅/, cover: 'gingerbread', stamp: 'XMAS DIY', cloth: '#24503d', tape: '#e6c79a', stickers: ['gingerhouse', 'piping', 'antlers', 'candies'] },
+  { match: /交車/, cover: 'newcar', stamp: 'NEW CAR', cloth: '#3d4f66', tape: '#eba28f', stickers: ['carbow', 'carkey', 'fuelpump', 'heart'] },
   { match: /./, cover: 'trip', stamp: 'TRAVEL', cloth: '#74522e', tape: '#d6ab74', stickers: ['suitcase', 'plane', 'compass', 'camera'] }
 ];
 // 影片標題提到這些地方時，內頁優先貼對應的貼紙
